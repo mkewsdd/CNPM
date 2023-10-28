@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="introduction.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel = "icon" href ="data:image/jpeg;base64,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" type = "image/x-icon"> 
+    <title>Giới thiệu</title>
+</head>
+<body>
+    <header id="brand__navigation">
+        <div class="content">
+            <img class="logo-nav" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqaiNPZuXU3NjhwHvCVpXXgnq9FvUDtWnhag&usqp=CAU" />
+            <nav class="header-des">
+                <ul class="navigation">
+                    <li id="home">TRANG CHỦ</li>
+                    <li id="introduction">GIỚI THIỆU</li>
+                    <li id="menu">SẢN PHẨM</li>
+                    <li id="news">TINTỨC</li>
+                    <li>
+                        <span class="cart-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="cart-count">0</span>
+                          </span>
+                    </li>
+                </ul>
+            </nav>
+          <div class="search">
+            <div class="search__btn-container">
+            <i class="search__btn fa-solid fa-magnifying-glass"></i>
+            </div>
+             <form class="product__search">
+                <input type="text" class="input-product" placeholder="Tìm kiếm..."/>
+            </form>
+          </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb__background">
+        <div class="title__container">
+            <div class="title__item">
+                <p class="title">Giới thiệu</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page__location">
+        <div class="location__container">
+            <h1 class="location-des">Trang chủ  /  
+                <span class="location">Giới thiệu</span>
+            </h1>
+        </div>
+    </div>
+
+    <section class="page">
+        <div class="page__container">
+            <h1 class="page__header">Giới thiệu</h1>
+            <p class="page_des">Boba Drink hiện là chuỗi cửa hàng đồ uống lớn nhất tại Việt Nam. Những sản phẩm từ Boba Drink đang như một cơn bão rất nhanh chóng lan rộng ra xung quanh những nước Châu Á. Đi đến đâu sản phẩm của Boba Drink cũng nhận được sự yêu quý của khách hàng các nước. Đây cũng là loại trà có hương vị khác biệt nhất, đủ tiêu chuẩn và là thương hiệu đồ uống duy nhất để đưa vào giới thiệu tại Shanghai World Expo 2010. </p>
+            <p class="page_des">Boba Drink hiện tại đã có chi nhánh cửa hàng tại Đài Loan, Nhật Bản, Trung Quốc, Hồng Kong, Indonesia, Malaisia, Singapor, Việt Nam, Myanma, Brunei, v.v..</p>
+            <p class="page_des">Trong suốt quá trình phát triển của mình Boba Drinkluôn tập trung vào việc kết hợp và tạo ra những sản phẩm chất lượng cao nhất và phải tạo được sự khác biệt so với những sản phẩm cùng loại trên thị trường. Để làm được điều này, chỉ số chất lượng của tất cả các nguyên liệu và các thành phần được sử dụng trong các sản phẩm của Boba Drink không chỉ vượt qua được chứng nhận SGS Đài Loan mà họ cũng đã vượt qua 231 bài thử nghiệm chất lượng của SGS Nhật Bản về việc cấp phép nhập khẩu. Dingtea hoàn toàn không sử dụng hương liệu phụ gia để bảo quản. Ngoài tính đặc trưng hơn so với các sản phẩm khác, Sản phẩm của Boba Drink còn thể hiện văn hóa trà chuyên nghiệp, tinh tế và độc đáo của người Đài Loan.</p>
+            <p class="page_des">Để luôn có được loại trà tốt nhất, Boba Drink đã ký hợp đồng với những nông dân ở vùng cao. Chăm sóc tại những vườn chè với nhiệt độ thấp và có độ cao lên đến 1000m, cùng với việc lựa chọn tỉ mỉ một đầu-hai-lá, trà đã pha không chỉ toả ra một hương vị ngọt ngào mà còn có mùi thơm đặc biệt. Phần lớn các loại trà trên thị trường đều có xuất xứ từ Trung Quốc, hương thơm được tăng lên thông qua việc sử dụng các phụ gia, trong khi vị đắng và vị ngọt được điều chỉnh thông qua các chất làm ngọt, do đó chất lượng có sự khác biệt đáng kể so với sản phẩm của Boba Drink.</p>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="footer__container">
+            <ul class="items">
+                <li class="item">
+                    <i class="item__icon fa-solid fa-check"></i>
+                    <h1 class="item__heading">Giờ mở cửa</h1>
+                    <p class="item__des">
+                     Thứ 2-6: 8h00 am - 22h00 pm
+                    </p>
+                    <p class="item__des">
+                     Thứ 7-CN: 9h00 am - 21h00 pm
+                    </p>
+                </li>
+                <li class="item">
+                    <i class="item__icon fa-regular fa-envelope"></i>
+                    <h1 class="item__heading">Thông tin liên hệ</h1>
+                    <p class="item__des">
+                        Địa chỉ: đường xxx, số ** , phường xxx, Hà Nội, Điện thoại: **** ****
+                    </p>
+                </li>
+                <li class="item">
+                    <i class="item__icon fa-solid fa-share-nodes"></i>
+                    <h1 class="item__heading">Kết nối với chúng tôi</h1>
+                    <div class="item__social-icons">
+                        <i class="social-icon fa-brands fa-facebook"></i>
+                        <i class="social-icon fa-brands fa-twitter"></i>
+                        <i class="social-icon fa-brands fa-instagram"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="popcart">
+        <div class="popcart__heading">
+            <i class="popcart__heading-icon fa-solid fa-check"></i>
+            <span class="popcart__product">
+                Bạn đã thêm [
+                <p class="popcart__product-name"></p>
+                ] vào giỏ hàng
+            </span>
+            <i class="close__popcart fa-solid fa-xmark"></i>
+        </div>
+        <div class="popcart__count">
+            <span class="popcart__product-count">
+                giỏ hàng của bạn hiện có
+                <span class="counts__products"></span>
+                sản phẩm
+            </span>
+        </div>
+        <div class="cart__container">
+            <div class="cart__header-infos">
+                <div class="info-value">Thông tin sản phẩm</div>
+                <div class="info-column">Đơn giá</div>
+                <div class="info-column">Số lượng</div>
+                <div class="info-column">Thành tiền</div>
+            </div> 
+            <div class="cart__product">
+                <ul class="cart__product-items">
+                    <!-- <li class="cart__product-item">
+                        <div class="product-item">
+                            <img class="cart__product-img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717" alt="d">
+                            <div class="product-name">Trà sữa khoai môn 
+                                <div class="delete__product">xóa</div>
+                            </div>
+                            <div class="prdouct-size">
+                                <form>
+                                    <input type="radio" name="size" value="s"> S
+                                    <input type="radio" name="size" value="m"> M
+                                    <input type="radio" name="size" value="l"> L
+                                </form>
+                            </div>
+                           
+                        </div>
+                        <div class="product__caculator">
+                            <div class="product-price">45.000đ</div>
+                            <div class="product-count">
+                                <input class="count__input" type="number" min="1" value="1">
+                            </div>
+                            <div class="product-total">45.000đ</div>
+                        </div>
+                    </li>
+                    <li class="cart__product-item">
+                        <div class="product-item">
+                            <img class="cart__product-img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717" alt="d">
+                            <div class="product-name">Trà sữa khoai môn 
+                                <div class="delete__product">xóa</div>
+                            </div>
+                            <div class="prdouct-size">
+                                <form>
+                                    <input type="radio" name="size" value="s"> S
+                                    <input type="radio" name="size" value="m"> M
+                                    <input type="radio" name="size" value="l"> L
+                                </form>
+                            </div>
+                           
+                        </div>
+                        <div class="product__caculator">
+                            <div class="product-price">45.000đ</div>
+                            <div class="product-count">
+                                <input class="count__input" type="number" min="1" value="1">
+                            </div>
+                            <div class="product-total">45.000đ</div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="popcart__footer">
+            <div class="popcart__footer-total">
+                <div class="popcart__total">
+                    Tổng tiền thanh toán:
+                </div>
+                <div class="total"></div>
+            </div>
+            <div class="popcart__checkout">
+                <div class="popcart__close">
+                    <div class="popcart__close-des">tiếp tục mua hàng</div>
+                </div>
+                <div class="popcart__pay">
+                    <div class="popcart__close-pay">thực hiện thanh toán</div>
+                <div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="introduction.js"></script>
+</html>

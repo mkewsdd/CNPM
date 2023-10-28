@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel = "icon" href ="data:image/jpeg;base64,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" type = "image/x-icon"> 
+    <title>Trang chủ</title>
+</head>
+<body>
+    <header id="brand__navigation">
+        <div class="content">
+            <img class="logo-nav" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqaiNPZuXU3NjhwHvCVpXXgnq9FvUDtWnhag&usqp=CAU" />
+            <nav class="header-des">
+                <ul class="navigation">
+                    <li id="home">TRANG CHỦ</li>
+                    <li id="introduction">GIỚI THIỆU</li>
+                    <li id="menu">SẢN PHẨM</li>
+                    <li id="news">TINTỨC</li>
+                    <li>
+                        <span class="cart-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="cart-count">0</span>
+                          </span>
+                    </li>
+                </ul>
+            </nav>
+          <div class="search">
+            <div class="search__btn-container">
+            <i class="search__btn fa-solid fa-magnifying-glass"></i>
+            </div>
+             <form class="product__search">
+                <input type="text" class="input-product" placeholder="Tìm kiếm..."/>
+            </form>
+          </div>
+        </div>
+      </header>
+            
+    <div id="content">
+        <div class="advertisement">
+            <img class="advertisement__img" src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/slider_1.jpg?1676358260059">
+        </div>
+        <section class="description">
+            <div class="container">
+                <ul class="container__items">
+                    <li class="container__item">
+                        <img class="item__img" src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_1.png?1676358260059"></i>
+                        <h1 class="item__head">Giao hàng miễn phí</h1>
+                        <p class="item__des">Với các đơn hàng từ 100.000đ trở lên</p>
+                    </li>
+                    <li class="container__item">
+                        <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_2.png?1676358260059"></i>
+                        <h1 class="item__head">Phục vụ nhanh 24/7</h1>
+                        <p class="item__des">8h00 am - 22h30pm tất cả các ngày trong tuần</p>
+                    </li>
+                    <li class="container__item">
+                        <img src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/service_3.png?1676358260059"></i>
+                        <h1 class="item__head">Đồ uống đa dạng</h1>
+                        <p class="item__des">Ding tea, matcha, gongcha...</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="ads">
+            <div class="ads__items">
+                <img class="ads__item" src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/banner_1.jpg?1676358260059" alt="ads">
+                <img class="ads__item" src="https://bizweb.dktcdn.net/100/270/285/themes/895115/assets/banner_2.jpg?1676358260059" alt="ads">
+            </div>
+        </div>
+
+        <section class="howtobuy">
+            <div class="howtobuy__container">
+                <h1 class="howtobuy__tittle">cách thức đặt hàng</h1>
+                <ul class="howtobuy__items">
+                    <li class="howtobuy__item">
+                        <img class="howtobuy__item-img" src="https://dingtea.vn/images/step-1.png" alt="">
+                        <p class="howtobuy__item-des">
+                            Gọi 
+                            <b>xxxx xxxx</b>
+                        </p>
+                    </li>
+                    <li class="stepicons">
+                        <img class="stepicon" src="https://dingtea.vn/images/step-arr.png" alt="">
+                    </li>
+                    <li class="howtobuy__item">
+                        <img class="howtobuy__item-img" src="https://dingtea.vn/images/step-2.png" alt="">
+                        <p class="howtobuy__item-des">Tạo đơn hàng</p>
+                    </li>
+                    <li class="stepicons">
+                        <img class="stepicon" src="https://dingtea.vn/images/step-arr.png" alt="">
+                    </li>
+                    <li class="howtobuy__item">
+                        <img class="howtobuy__item-img" src="https://dingtea.vn/images/step-3.png" alt="">
+                        <p class="howtobuy__item-des">Giao hàng</p>
+                    </li>
+                    <li class="stepicons">
+                        <img class="stepicon" src="https://dingtea.vn/images/step-arr.png" alt="">
+                    </li>
+                    <li class="howtobuy__item">
+                        <img class="howtobuy__item-img" src="https://dingtea.vn/images/step-4.png" alt="">
+                        <p class="howtobuy__item-des">Thanh toán</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- <div class="menu">
+            <div class="menu__heading">
+                <i class="menu__heading__icon fa-solid fa-martini-glass-citrus"></i>
+                <h1 class="menu__heading__des">menu hiện tại</h1>
+            </div>
+            <section class="products">
+                <ul class="drinks__items">
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/05-a41e0c7f-e4c9-4ad2-9412-1e8c4d79a028.jpg?v=1510561983257" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Sinh tố dâu tây</h1>
+                            <p class="drink__price">42.000₫ </p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770">
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Trà xanh bưởi</h1>
+                            <p class="drink__price">29.000₫</p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/09-a09e1b97-407c-42d9-8070-9d9b52ff7590.jpg?v=1510560775437" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Trà xanh dưa leo</h1>
+                            <p class="drink__price">34.000₫</p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/08-f2fa2b17-8e88-4f68-9311-452ff574b2d0.jpg?v=1510560912103" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Trà sữa socola</h1>
+                            <p class="drink__price">37.000₫ </p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910154723-tra-xanh-xi-muoi.jpg?v=1510561254037" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Trà chanh đài loan</h1>
+                            <p class="drink__price">27.000₫</p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910153030-tra-olong-sui-bot.jpg?v=1510561084490" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Hồng trà mật ong</h1>
+                            <p class="drink__price">36.000₫ </p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/04-de27bf4e-5fa7-4517-a796-94b7d46d5b4e.jpg?v=1510560499817" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Trà sữa kiwi</h1>
+                            <p class="drink__price">32.000₫</p>
+                        </div>
+                    </li>
+                    <li class="drinks__item">
+                        <div class="drink__img-wrapper">
+                            <img class="drink__img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717" >
+                            <span class="drink__hover-text">Mua hàng</span>
+                        </div>
+                        <div class="drink__info">
+                            <h1 class="drink__name">Trà sữa khoai môn</h1>
+                            <p class="drink__price">45.000₫</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div> -->
+    </div>
+    <section id="footer">
+        <div class="footer__container">
+            <ul class="items">
+                <li class="item">
+                    <i class="item__icon fa-solid fa-check"></i>
+                    <h1 class="item__heading">Giờ mở cửa</h1>
+                    <p class="item__des">
+                     Thứ 2-6: 8h00 am - 22h00 pm
+                    </p>
+                    <p class="item__des">
+                     Thứ 7-CN: 9h00 am - 21h00 pm
+                    </p>
+                </li>
+                <li class="item">
+                    <i class="item__icon fa-regular fa-envelope"></i>
+                    <h1 class="item__heading">Thông tin liên hệ</h1>
+                    <p class="item__des">
+                        Địa chỉ: đường xxx, số ** , phường xxx, Hà Nội, Điện thoại: **** ****
+                    </p>
+                </li>
+                <li class="item">
+                    <i class="item__icon fa-solid fa-share-nodes"></i>
+                    <h1 class="item__heading">Kết nối với chúng tôi</h1>
+                    <div class="item__social-icons">
+                        <i class="social-icon fa-brands fa-facebook"></i>
+                        <i class="social-icon fa-brands fa-twitter"></i>
+                        <i class="social-icon fa-brands fa-instagram"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="popcart">
+        <div class="popcart__heading">
+            <i class="popcart__heading-icon fa-solid fa-check"></i>
+            <span class="popcart__product">
+                Bạn đã thêm [
+                <p class="popcart__product-name"></p>
+                ] vào giỏ hàng
+            </span>
+            <i class="close__popcart fa-solid fa-xmark"></i>
+        </div>
+        <div class="popcart__count">
+            <span class="popcart__product-count">
+                giỏ hàng của bạn hiện có
+                <span class="counts__products"></span>
+                sản phẩm
+            </span>
+        </div>
+        <div class="cart__container">
+            <div class="cart__header-infos">
+                <div class="info-value">Thông tin sản phẩm</div>
+                <div class="info-column">Đơn giá</div>
+                <div class="info-column">Số lượng</div>
+                <div class="info-column">Thành tiền</div>
+            </div> 
+            <div class="cart__product">
+                <ul class="cart__product-items">
+                    <!-- <li class="cart__product-item">
+                        <div class="product-item">
+                            <img class="cart__product-img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717" alt="d">
+                            <div class="product-name">Trà sữa khoai môn 
+                                <div class="delete__product">xóa</div>
+                            </div>
+                            <div class="prdouct-size">
+                                <form>
+                                    <input type="radio" name="size" value="s"> S
+                                    <input type="radio" name="size" value="m"> M
+                                    <input type="radio" name="size" value="l"> L
+                                </form>
+                            </div>
+                           
+                        </div>
+                        <div class="product__caculator">
+                            <div class="product-price">45.000đ</div>
+                            <div class="product-count">
+                                <input class="count__input" type="number" min="1" value="1">
+                            </div>
+                            <div class="product-total">45.000đ</div>
+                        </div>
+                    </li>
+                    <li class="cart__product-item">
+                        <div class="product-item">
+                            <img class="cart__product-img" src="https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717" alt="d">
+                            <div class="product-name">Trà sữa khoai môn 
+                                <div class="delete__product">xóa</div>
+                            </div>
+                            <div class="prdouct-size">
+                                <form>
+                                    <input type="radio" name="size" value="s"> S
+                                    <input type="radio" name="size" value="m"> M
+                                    <input type="radio" name="size" value="l"> L
+                                </form>
+                            </div>
+                           
+                        </div>
+                        <div class="product__caculator">
+                            <div class="product-price">45.000đ</div>
+                            <div class="product-count">
+                                <input class="count__input" type="number" min="1" value="1">
+                            </div>
+                            <div class="product-total">45.000đ</div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="popcart__footer">
+            <div class="popcart__footer-total">
+                <div class="popcart__total">
+                    Tổng tiền thanh toán:
+                </div>
+                <div class="total"></div>
+            </div>
+            <div class="popcart__checkout">
+                <div class="popcart__close">
+                    <div class="popcart__close-des">tiếp tục mua hàng</div>
+                </div>
+                <div class="popcart__pay">
+                    <div class="popcart__close-pay">thực hiện thanh toán</div>
+                <div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>
