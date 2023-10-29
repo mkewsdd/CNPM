@@ -228,7 +228,12 @@ function search() {
     const inputProduct = $('.input-product');
     const suggestionsList = $('.suggestions-list');
     const drinksName = $$('.drink__name');
+    const productsName = [];
     const products = [];
+
+    drinksName.forEach(function(element) {
+        productsName.push(element.innerHTML);
+    })
 
     // Lấy ra các sảm phẩm
     drinksName.forEach(function(element, i){
@@ -296,19 +301,17 @@ function search() {
             suggestionsList.style.display = 'none';
         }
     }); 
+
+    inputProduct.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            const productSearch = capitalizeFirstLetter(inputProduct.value);
+        }
+    });
+
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 }
-
-// inputProduct.addEventListener('keypress', function(event) {
-// if (event.key === 'Enter') {
-//   const productSearch = capitalizeFirstLetter(inputProduct.value);
-//   // Do something with the capitalized search term
-//   console.log(productSearch);
-// }
-// });
-
-// function capitalizeFirstLetter(str) {
-//     return str.charAt(0).toUpperCase() + str.slice(1);
-// }
 
 function changePage() {
     const homePage = $('#home');
