@@ -228,6 +228,7 @@ function search() {
     const inputProduct = $('.input-product');
     const suggestionsList = $('.suggestions-list');
     const drinksName = $$('.drink__name');
+    const drinksItem = $$('.drinks__item');
     const productsName = [];
     const products = [];
 
@@ -249,7 +250,7 @@ function search() {
         } else {
           searchInput.style.display = 'none';
           suggestionsList.style.display = 'none';
-          suggestionsList.innerHTML = ''; // Clear the suggestions list when hiding the search input
+          suggestionsList.innerHTML = ''; // làm rỗng gợi ý 
         }
     });
   
@@ -273,7 +274,7 @@ function search() {
     inputProduct.addEventListener('input', function () {
         const inputText = inputProduct.value.toLowerCase();
         const filteredProducts = products.filter(function (product) {
-          return product.toLowerCase().startsWith(inputText);
+            return product.toLowerCase().startsWith(inputText);
         });
     
         suggestionsList.innerHTML = '';
@@ -285,7 +286,7 @@ function search() {
           suggestionsList.appendChild(li);
         });
     
-        if (inputText === '') {
+        if (inputText == '') {
           // Nếu thanh input là rỗng, hiển thị gợi ý
           suggestionsList.style.display = 'block';
         } else {
@@ -299,12 +300,46 @@ function search() {
             inputProduct.value = event.target.textContent;
             suggestionsList.innerHTML = '';
             suggestionsList.style.display = 'none';
+            inputProduct.focus();
         }
     }); 
 
     inputProduct.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             const productSearch = capitalizeFirstLetter(inputProduct.value);
+            inputProduct.value = "";
+    
+            let foundProduct = false;
+            drinksName.forEach(function(element, index) {
+            if (drinksName[index].innerHTML.includes(productSearch)) {
+                foundProduct = true;
+                removeHighlights();
+                drinksItem[index].classList.add('highlighted');
+                drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
+                return;
+            }
+            });
+            if (!foundProduct) {
+                alert("Sản phẩm không tồn tại");
+            } 
+        }
+      });
+
+    // Xóa highlight cho tất cả sản phẩm
+    function removeHighlights() {
+        drinksItem.forEach(function(item) {
+            item.classList.remove('highlighted');
+        });
+    }
+    
+    // Khi phần tử đầu vào tìm kiếm mất trọng tâm, xóa highlight
+    inputProduct.addEventListener('blur', function() {
+        removeHighlights();
+    });
+    
+    document.addEventListener('click', function(event) {
+        if(!searchInput.contains(event.target)){
+            removeHighlights();
         }
     });
 
