@@ -1,15 +1,6 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-// Lấy dữ liệu từ Local Storage
-const storedData = localStorage.getItem('myData');
-
-let productsData;
-// Kiểm tra xem dữ liệu có tồn tại không
-if (storedData) {
-    productsData = JSON.parse(storedData);
-}
-
 function getstart(){
     popcartHandle();
     openPopcart()
@@ -205,6 +196,9 @@ function search() {
     const inputProduct = $('.input-product');
     const suggestionsList = $('.suggestions-list');
     const drinksName = $$('.drink__name');
+    const drinksItem = $$('.drinks__item');
+    const products = [];
+    const productsData = JSON.parse(localStorage.getItem("menuproducts"));
     
     // Hiện thanh tìm kiếm
     searchBtn.addEventListener('click', function() {
@@ -215,7 +209,7 @@ function search() {
         } else {
           searchInput.style.display = 'none';
           suggestionsList.style.display = 'none';
-          suggestionsList.innerHTML = ''; // Clear the suggestions list when hiding the search input
+          suggestionsList.innerHTML = ''; // làm rỗng gợi ý 
         }
     });
   
@@ -238,20 +232,20 @@ function search() {
     // Nếu thanh Input rỗng thì hiện gợi ý
     inputProduct.addEventListener('input', function () {
         const inputText = inputProduct.value.toLowerCase();
-        const filteredProducts =  productsData.filter(function (product) {
-          return product.toLowerCase().startsWith(inputText);
+        const filteredProducts = productsData.filter(function(product) {
+            return product.toLowerCase().startsWith(inputText);
         });
     
         suggestionsList.innerHTML = '';
     
         // Hiển thị các sản phẩm gợi ý
-        filteredProducts.forEach(function (product) {
+        filteredProducts.forEach(function(product) {
           const li = document.createElement('li');
           li.textContent = product;
           suggestionsList.appendChild(li);
         });
     
-        if (inputText === '') {
+        if (inputText == '') {
           // Nếu thanh input là rỗng, hiển thị gợi ý
           suggestionsList.style.display = 'block';
         } else {
@@ -265,8 +259,53 @@ function search() {
             inputProduct.value = event.target.textContent;
             suggestionsList.innerHTML = '';
             suggestionsList.style.display = 'none';
+            inputProduct.focus();
         }
     }); 
+
+    inputProduct.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            const productSearch = capitalizeFirstLetter(inputProduct.value);
+            inputProduct.value = "";
+
+            let foundProduct = false;
+            drinksName.forEach(function (element, index) {
+                //ktra xem productSearch có rỗng và có nằm trong sản phẩm không
+                if (productSearch && drinksName[index].innerHTML.includes(productSearch)) {
+                  foundProduct = true; 
+                  removeHighlights();
+                  drinksItem[index].classList.add('highlighted');
+                  drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
+                  return;
+                }
+            });
+            if (!foundProduct) {
+                alert("Sản phẩm không tồn tại");
+            } 
+        }
+    });
+
+    // Xóa highlight cho tất cả sản phẩm
+    function removeHighlights() {
+        drinksItem.forEach(function(item) {
+            item.classList.remove('highlighted');
+        });
+    }
+    
+    // click ra ngoài thì xóa
+    inputProduct.addEventListener('click', function() {
+        removeHighlights();
+    });
+    
+    document.addEventListener('click', function(event) {
+        if(!searchInput.contains(event.target)){
+            removeHighlights();
+        }
+    });
+
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 }
 
 function changePage() {
@@ -291,5 +330,4 @@ function changePage() {
         window.location.href = '../web/news.html';
     }
 }
-
 

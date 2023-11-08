@@ -597,7 +597,7 @@
 .highlighted {
   border: 2.5px solid #f8452d;
   border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* ::-webkit-scrollbar

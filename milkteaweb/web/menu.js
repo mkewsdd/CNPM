@@ -310,20 +310,21 @@ function search() {
             inputProduct.value = "";
     
             let foundProduct = false;
-            drinksName.forEach(function(element, index) {
-            if (drinksName[index].innerHTML.includes(productSearch)) {
-                foundProduct = true;
-                removeHighlights();
-                drinksItem[index].classList.add('highlighted');
-                drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
-                return;
-            }
+            drinksName.forEach(function (element, index) {
+                //ktra xem productSearch có rỗng và có nằm trong sản phẩm không
+                if (productSearch && drinksName[index].innerHTML.includes(productSearch)) {
+                  foundProduct = true;
+                  removeHighlights();
+                  drinksItem[index].classList.add('highlighted');
+                  drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
+                  return;
+                }
             });
             if (!foundProduct) {
                 alert("Sản phẩm không tồn tại");
             } 
         }
-      });
+    });
 
     // Xóa highlight cho tất cả sản phẩm
     function removeHighlights() {
@@ -332,8 +333,8 @@ function search() {
         });
     }
     
-    // Khi phần tử đầu vào tìm kiếm mất trọng tâm, xóa highlight
-    inputProduct.addEventListener('blur', function() {
+    // click ra ngoài thì xóa
+    inputProduct.addEventListener('click', function() {
         removeHighlights();
     });
     
@@ -374,14 +375,15 @@ function changePage() {
 const drinksName = $$('.drink__name');
 const products = [];
 
-// Lấy ra các sảm phẩm
+// Lấy ra các sản phẩm
 drinksName.forEach(function(element, i){
     products.push(drinksName[i].innerText);
 })
 
 // Lưu trữ dữ liệu vào Local Storage
-localStorage.setItem('myData', JSON.stringify(products));
+localStorage.setItem("menuproducts", JSON.stringify(products));
 
 // vì sao const cartProducts = []; lại phải để ở ngoài
 //includes
 //target, tagname
+//localstrange.set.get

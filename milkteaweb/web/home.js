@@ -205,6 +205,18 @@ function search() {
     const inputProduct = $('.input-product');
     const suggestionsList = $('.suggestions-list');
     const drinksName = $$('.drink__name');
+    const drinksItem = $$('.drinks__item');
+    const productsName = [];
+    const products = [];
+
+    drinksName.forEach(function(element) {
+        productsName.push(element.innerHTML);
+    })
+
+    // Lấy ra các sảm phẩm
+    drinksName.forEach(function(element, i){
+        products.push(drinksName[i].innerText);
+    })
     
     // Hiện thanh tìm kiếm
     searchBtn.addEventListener('click', function() {
@@ -215,13 +227,13 @@ function search() {
         } else {
           searchInput.style.display = 'none';
           suggestionsList.style.display = 'none';
-          suggestionsList.innerHTML = ''; // Clear the suggestions list when hiding the search input
+          suggestionsList.innerHTML = ''; // làm rỗng gợi ý 
         }
     });
   
     searchBtn.addEventListener('click', function() {
         const inputText = inputProduct.value.toLowerCase();
-        const filteredProducts = productsData.filter(function(product) {// Để kiểm tra phần tử có inputText là chữ thường
+        const filteredProducts = products.filter(function(product) {// Để kiểm tra phần tử có inputText là chữ thường
           return product.toLowerCase().startsWith(inputText);
         });
     
@@ -238,8 +250,8 @@ function search() {
     // Nếu thanh Input rỗng thì hiện gợi ý
     inputProduct.addEventListener('input', function () {
         const inputText = inputProduct.value.toLowerCase();
-        const filteredProducts =  productsData.filter(function (product) {
-          return product.toLowerCase().startsWith(inputText);
+        const filteredProducts = products.filter(function (product) {
+            return product.toLowerCase().startsWith(inputText);
         });
     
         suggestionsList.innerHTML = '';
@@ -251,7 +263,7 @@ function search() {
           suggestionsList.appendChild(li);
         });
     
-        if (inputText === '') {
+        if (inputText == '') {
           // Nếu thanh input là rỗng, hiển thị gợi ý
           suggestionsList.style.display = 'block';
         } else {
@@ -265,8 +277,53 @@ function search() {
             inputProduct.value = event.target.textContent;
             suggestionsList.innerHTML = '';
             suggestionsList.style.display = 'none';
+            inputProduct.focus();
         }
     }); 
+
+    inputProduct.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            const productSearch = capitalizeFirstLetter(inputProduct.value);
+            inputProduct.value = "";
+    
+            let foundProduct = false;
+            drinksName.forEach(function (element, index) {
+                //ktra xem productSearch có rỗng và có nằm trong sản phẩm không
+                if (productSearch && drinksName[index].innerHTML.includes(productSearch)) {
+                  foundProduct = true;
+                  removeHighlights();
+                  drinksItem[index].classList.add('highlighted');
+                  drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
+                  return;
+                }
+            });
+            if (!foundProduct) {
+                alert("Sản phẩm không tồn tại");
+            } 
+        }
+    });
+
+    // Xóa highlight cho tất cả sản phẩm
+    function removeHighlights() {
+        drinksItem.forEach(function(item) {
+            item.classList.remove('highlighted');
+        });
+    }
+    
+    // click ra ngoài thì xóa
+    inputProduct.addEventListener('click', function() {
+        removeHighlights();
+    });
+    
+    document.addEventListener('click', function(event) {
+        if(!searchInput.contains(event.target)){
+            removeHighlights();
+        }
+    });
+
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 }
 
 function changePage() {
