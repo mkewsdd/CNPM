@@ -262,50 +262,6 @@ function search() {
             inputProduct.focus();
         }
     }); 
-
-    inputProduct.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            const productSearch = capitalizeFirstLetter(inputProduct.value);
-            inputProduct.value = "";
-
-            let foundProduct = false;
-            drinksName.forEach(function (element, index) {
-                //ktra xem productSearch có rỗng và có nằm trong sản phẩm không
-                if (productSearch && drinksName[index].innerHTML.includes(productSearch)) {
-                  foundProduct = true; 
-                  removeHighlights();
-                  drinksItem[index].classList.add('highlighted');
-                  drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
-                  return;
-                }
-            });
-            if (!foundProduct) {
-                alert("Sản phẩm không tồn tại");
-            } 
-        }
-    });
-
-    // Xóa highlight cho tất cả sản phẩm
-    function removeHighlights() {
-        drinksItem.forEach(function(item) {
-            item.classList.remove('highlighted');
-        });
-    }
-    
-    // click ra ngoài thì xóa
-    inputProduct.addEventListener('click', function() {
-        removeHighlights();
-    });
-    
-    document.addEventListener('click', function(event) {
-        if(!searchInput.contains(event.target)){
-            removeHighlights();
-        }
-    });
-
-    function capitalizeFirstLetter(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
 }
 
 function changePage() {

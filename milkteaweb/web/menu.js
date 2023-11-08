@@ -321,7 +321,7 @@ function search() {
                 }
             });
             if (!foundProduct) {
-                alert("Sản phẩm không tồn tại");
+                alert("Không tìm thấy sản phẩm");
             } 
         }
     });
@@ -331,18 +331,46 @@ function search() {
         drinksItem.forEach(function(item) {
             item.classList.remove('highlighted');
         });
+    
+        // click ra ngoài thì xóa
+        inputProduct.addEventListener('click', function() {
+            removeHighlights();
+        });
+        
+        document.addEventListener('click', function(event) {
+            if(!searchInput.contains(event.target)){
+                removeHighlights();
+            }
+        });
     }
     
-    // click ra ngoài thì xóa
-    inputProduct.addEventListener('click', function() {
-        removeHighlights();
-    });
+    // Lấy giá trị từ khóa tìm kiếm từ URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var keyword = urlParams.get("keyword");//lưu giá trị của thanh input    
+    console.log(keyword)
+    // Kiểm tra xem từ khóa có tồn tại hay không
+    if (keyword) {
+        // Tìm kiếm và highlight sản phẩm
+        var foundProduct = false; // Biến kiểm tra xem đã tìm thấy sản phẩm hay chưa
     
-    document.addEventListener('click', function(event) {
-        if(!searchInput.contains(event.target)){
-            removeHighlights();
-        }
-    });
+        for (var index = 0; index < products.length; index++) {
+            // Kiểm tra xem tên sản phẩm có chứa từ khóa tìm kiếm (đúng toàn bộ chữ cái) hay không
+            if (productsName[index].toLowerCase() === keyword.toLowerCase()) {
+                // Highlight sản phẩm
+                drinksItem[index].classList.add('highlighted');
+                drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
+                foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
+                break; // Thoát khỏi vòng lặp sau khi tìm thấy sản phẩm
+            }
+            }
+        
+            if (!foundProduct) {
+                alert("Không tìm thấy sản phẩm");
+            }
+    } else if (keyword === "") {
+        alert("Không tìm thấy sản phẩm");
+    }
+
 
     function capitalizeFirstLetter(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
