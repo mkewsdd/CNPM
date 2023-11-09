@@ -2,13 +2,13 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 // Lấy dữ liệu từ Local Storage
-const storedData = localStorage.getItem('myData');
+// const storedData = localStorage.getItem('myData');
 
-let productsData;
-// Kiểm tra xem dữ liệu có tồn tại không
-if (storedData) {
-    productsData = JSON.parse(storedData);
-}
+// let productsData;
+// // Kiểm tra xem dữ liệu có tồn tại không
+// if (storedData) {
+//     productsData = JSON.parse(storedData);
+// }
 
 function getstart(){
     popcartHandle();
@@ -26,6 +26,7 @@ function popcartHandle() {
     const productsName = $$('.drink__name');
     const productsPrice = $$('.drink__price');
 
+    // Lấy thông tin của sản phẩm người dùng click vào
     buttons.forEach(button => {
         button.onclick = function() {
 
@@ -55,15 +56,15 @@ function popcartHandle() {
         const productCounts = $('.counts__products');
         const productsTotalPrice = $('.total');
 
+// Tạo popcart
         // Lấy số thẻ li trong thẻ ul(bắt đầu từ 0)
         const productQuantity = cartList.childElementCount + 1;
-
-        // Cho biết sản phẩm vừa được thêm vào
-        productName.innerHTML = product.name;
-
         // Đếm số sản phẩm trong giỏ hàng
         productCounts.innerHTML = productQuantity;
         cartCount.innerHTML = productQuantity;
+
+        // Cho biết sản phẩm vừa được thêm vào
+        productName.innerHTML = product.name;
 
         // Tạo phần tử li mới
         const li = document.createElement('li');
@@ -296,11 +297,3 @@ function changePage() {
     }
 }
 
-
-// createElement
-// classList.add
-// parseFloat
-// replace
-// appendChild
-// toLocaleString
-//childElementCount

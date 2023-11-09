@@ -1,16 +1,13 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-// Khai báo biến toàn cục để lưu trữ giá trị của storedCartProducts
-var cartProducts = [];
-
 function getstart(){
     popcartHandle();
     openPopcart();
     closePopcart();
     search();
     changePage();
-    //loadCartProducts(); // Thêm hàm này để chèn sản phẩm vào giỏ hàng khi tải lại trang
+    getData();
 }
 getstart()
 
@@ -27,6 +24,7 @@ function popcartHandle() {
     const productsTotalPrice = $('.total');
     var storedCartProducts = [];
 
+    // Lấy thông tin của sản phẩm người dùng click vào
     buttons.forEach(button => {
         button.onclick = function() {
 
@@ -58,15 +56,15 @@ function popcartHandle() {
         const popcart = $('#popcart');
         var cartProductList = document.querySelector('.cart__product-items');
 
+    // Tạo popcart
         // Lấy số thẻ li trong thẻ ul(bắt đầu từ 0)
         const productQuantity = cartList.childElementCount + 1;
-
-        // Cho biết sản phẩm vừa được thêm vào
-        productName.innerHTML = product.name;
-
         // Đếm số sản phẩm trong giỏ hàng
         productCounts.innerHTML = productQuantity;
         cartCount.innerHTML = productQuantity;
+
+        // Cho biết sản phẩm vừa được thêm vào
+        productName.innerHTML = product.name;
 
         // Tạo phần tử li mới
         const li = document.createElement('li');
@@ -169,25 +167,6 @@ function popcartHandle() {
             cartCount.innerHTML =  productQuantity;
             updateTotalPrice(); // Gọi hàm cập nhật tổng số tiền
         });
-
-        storedCartProducts.push(product);
-
-        // Lưu trữ giá trị storedCartProducts trong sessionStorage
-        sessionStorage.setItem('cartProducts', JSON.stringify(storedCartProducts));
-
-        storedCartProducts.forEach(function(element, index) {
-            // Lấy thông tin từ sản phẩm lần trước
-            const productImg =  storedCartProducts[index].img;
-            const productName = storedCartProducts[index].name;
-            const productPrice = storedCartProducts[index].price;
-
-            cartProduct = {
-                img: productImg,
-                name: productName,
-                price: productPrice
-            };
-        })
-        
     }
 
     // Hàm định dạng số tiền thành định dạng tiền tệ với dấu chấm ngăn cách hàng nghìn
@@ -360,16 +339,22 @@ function search() {
                 drinksItem[index].classList.add('highlighted');
                 drinksItem[index].scrollIntoView(); // Trỏ con trỏ chuột vào sản phẩm vừa tìm kiếm
                 foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
-                break; // Thoát khỏi vòng lặp sau khi tìm thấy sản phẩm
             }
-            }
-        
-            if (!foundProduct) {
-                alert("Không tìm thấy sản phẩm");
-            }
+        }
+    
+        if (!foundProduct) {
+            alert("Không tìm thấy sản phẩm");
+        }
     } else if (keyword === "") {
-        alert("Không tìm thấy sản phẩm");
+        //alert("Không tìm thấy sản phẩm");
     }
+
+
+    document.addEventListener("click", function (event) {
+        drinksItem.forEach(function(item) {
+            item.classList.remove('highlighted');
+        });
+    });
 
 
     function capitalizeFirstLetter(str) {
@@ -400,18 +385,16 @@ function changePage() {
     }
 }
 
-const drinksName = $$('.drink__name');
-const products = [];
+function getData() {
+    const drinksName = $$('.drink__name');
+    const products = [];
 
-// Lấy ra các sản phẩm
-drinksName.forEach(function(element, i){
-    products.push(drinksName[i].innerText);
-})
+    // Lấy ra các sản phẩm
+    drinksName.forEach(function(element, i){
+        products.push(drinksName[i].innerText);
+    })
 
-// Lưu trữ dữ liệu vào Local Storage
-localStorage.setItem("menuproducts", JSON.stringify(products));
+    // Lưu trữ dữ liệu tên các sản phẩm vào Local Storage
+    localStorage.setItem("menuproducts", JSON.stringify(products));
 
-// vì sao const cartProducts = []; lại phải để ở ngoài
-//includes
-//target, tagname
-//localstrange.set.get
+}

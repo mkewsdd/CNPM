@@ -26,6 +26,7 @@ function popcartHandle() {
     const productsName = $$('.drink__name');
     const productsPrice = $$('.drink__price');
 
+    // Lấy thông tin của sản phẩm người dùng click vào
     buttons.forEach(button => {
         button.onclick = function() {
 
@@ -57,13 +58,12 @@ function popcartHandle() {
 
         // Lấy số thẻ li trong thẻ ul(bắt đầu từ 0)
         const productQuantity = cartList.childElementCount + 1;
-
-        // Cho biết sản phẩm vừa được thêm vào
-        productName.innerHTML = product.name;
-
         // Đếm số sản phẩm trong giỏ hàng
         productCounts.innerHTML = productQuantity;
         cartCount.innerHTML = productQuantity;
+
+        // Cho biết sản phẩm vừa được thêm vào
+        productName.innerHTML = product.name;
 
         // Tạo phần tử li mới
         const li = document.createElement('li');
