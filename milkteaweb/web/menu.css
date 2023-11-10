@@ -235,6 +235,127 @@
   font-weight: 300;
 }
 
+.filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.filter__container {
+  width: 60%;  
+  background: rgba(0,0,0,.04);
+  padding: 0.8125rem 1.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter__des {
+  margin-left: 12px;
+  color: #555;
+}
+
+.filter__items {  
+  width: 100%;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.filter__item {
+  background-color: #fff;
+  border: 0.1px solid #ccc;
+  border-radius: 2px;
+  color: #555;
+}
+
+.filter__products {
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.02);
+  height: 2.125rem;
+  line-height: 2.125rem;
+  border-radius: 2px;
+  border: 0;
+  padding: 0px 0.925rem ;
+}
+
+.filter__item {
+  margin-left: 0.925rem;
+}
+
+.filter__products {
+  outline: none;
+}
+
+.price__options {
+  position: relative;
+  list-style: none;
+  outline: none;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.02);
+  height: 2.125rem;
+  line-height: 2.125rem;
+  border-radius: 2px;
+  border: 0;
+  padding: 0px 0.925rem;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price__options__container {
+  z-index: 1000000;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -1.5px;
+  width: 101.5%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 1.5px;
+  box-shadow: 0 1px 1px 0 rgba(255, 4, 4, 0.1);
+}
+
+.price__option {
+  padding-left: 5px;
+}
+.price__options-icon
+
+.filter__item:hover {
+  cursor: pointer;
+}
+
+.filter__items .filter__item:not(:last-child):hover {
+  color: #fff;
+  background-color: #f8452d;
+}
+
+.filter__item:last-child{
+  border: 2px solid #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.price__options:hover{
+  cursor: pointer;
+}
+
+.filter__products {
+  cursor: pointer;
+}
+
+.price__option:hover{
+  color: #f8452d;
+}
+
 .products {
   display: flex;
   justify-content: center;
