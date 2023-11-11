@@ -335,6 +335,12 @@
 .filter__items .filter__item:not(:last-child):hover {
   color: #fff;
   background-color: #f8452d;
+  opacity: 0.9;
+}
+
+.active {
+  color: #fff;
+  background-color: #f8452d;
 }
 
 .filter__item:last-child{

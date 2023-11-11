@@ -7,6 +7,7 @@ function getstart(){
     closePopcart();
     search();
     changePage();
+    priceFilter()
     getData();
 }
 getstart()
@@ -378,7 +379,7 @@ function search() {
     }
 
 
-    document.addEventListener("click", function (event) {
+    document.addEventListener("click", function(event) {
         drinksItem.forEach(function(item) {
             item.classList.remove('highlighted');
         });
@@ -408,6 +409,160 @@ function changePage() {
     }
 }
 
+function priceFilter() {
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+    const priceOptions = $('.price__options');
+    const options = $('.price__options__container');
+    const filterOptions = $$('.filter__products');
+    const drinksContainer = $('.drinks__items');
+    const drinks = $$('.drinks__item');
+
+    // Hiện/Ẩn thanh option
+    priceOptions.addEventListener('click', function() {
+        if (options.style.display !== 'block') {
+            options.style.display = 'block';
+        } else {
+            options.style.display = 'none';
+        }
+    });
+
+    // Ẩn thanh option khi click ra ngoài
+    document.addEventListener('mouseup', function(event) {
+        const target = event.target;
+        if (!options.contains(target) && options.style.display === 'block') {
+            options.style.display = 'none';
+        }
+    });
+
+    // Xử lý sự kiện khi chọn các tùy chọn bộ lọc
+    filterOptions.forEach(function(option) {
+        option.addEventListener('click', function() {
+            // Xóa lớp active của tất cả các tùy chọn bộ lọc
+            filterOptions.forEach(function(filterOption) {
+                filterOption.classList.remove('active');
+            });
+            // Thêm lớp active cho tùy chọn được chọn
+            option.classList.add('active');
+
+            // Kiểm tra xem tùy chọn được chọn là "Mới nhất" hay "Số lượt mua"
+            if(option.textContent === "Mới nhất" || option.textContent === "Số lượt mua") {
+                // Xáo trộn các sản phẩm
+                shuffleProducts();
+            } else if(option.textContent === "Liên Quan") {
+                stableProducts(); 
+            }
+        });
+    });
+
+    // Hàm để lại sản phẩm như ban đầu
+    function stableProducts() {
+        const newOrder = [
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/05-a41e0c7f-e4c9-4ad2-9412-1e8c4d79a028.jpg?v=1510561983257',
+                hoverText: 'Mua hàng',
+                name: 'Sinh tố dâu tây',
+                price: '42.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/07-550de86d-8a95-4083-8490-8ee5fcb930c6.jpg?v=1510561744770',
+                hoverText: 'Mua hàng',
+                name: 'Trà xanh bưởi',
+                price: '29.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/09-a09e1b97-407c-42d9-8070-9d9b52ff7590.jpg?v=1510560775437',
+                hoverText: 'Mua hàng',
+                name: 'Trà xanh dưa leo',
+                price: '34.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/08-f2fa2b17-8e88-4f68-9311-452ff574b2d0.jpg?v=1510560912103',
+                hoverText: 'Mua hàng',
+                name: 'Trà sữa socola',
+                price: '37.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910154723-tra-xanh-xi-muoi.jpg?v=1510561254037',
+                hoverText: 'Mua hàng',
+                name: 'Trà chanh đài loan',
+                price: '27.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/2016910153030-tra-olong-sui-bot.jpg?v=1510561084490',
+                hoverText: 'Mua hàng',
+                name: 'Hồng trà mật ong',
+                price: '36.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/04-de27bf4e-5fa7-4517-a796-94b7d46d5b4e.jpg?v=1510560499817',
+                hoverText: 'Mua hàng',
+                name: 'Trà sữa kiwi',
+                price: '32.000₫'
+            },
+            {
+                imgSrc: 'https://bizweb.dktcdn.net/thumb/large/100/270/285/products/11-72b16683-c3bd-4c4f-9ba2-f9b2a5dce3a8.jpg?v=1510560206717',
+                hoverText: 'Mua hàng',
+                name: 'Trà sữa khoai môn',
+                price: '45.000₫'
+            }
+        ];
+    
+        drinksContainer.innerHTML = ''; // Xóa các sản phẩm hiện có
+    
+        newOrder.forEach(function (product) {
+            const drinkItem = document.createElement('li');
+            drinkItem.className = 'drinks__item';
+    
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'drink__img-wrapper';
+    
+            const img = document.createElement('img');
+            img.className = 'drink__img';
+            img.src = product.imgSrc;
+    
+            const hoverText = document.createElement('span');
+            hoverText.className = 'drink__hover-text';
+            hoverText.textContent = product.hoverText;
+    
+            imgWrapper.appendChild(img);
+            imgWrapper.appendChild(hoverText);
+    
+            const drinkInfo = document.createElement('div');
+            drinkInfo.className = 'drink__info';
+    
+            const drinkName = document.createElement('h1');
+            drinkName.className = 'drink__name';
+            drinkName.textContent = product.name;
+    
+            const drinkPrice = document.createElement('p');
+            drinkPrice.className = 'drink__price';
+            drinkPrice.textContent = product.price;
+    
+            drinkInfo.appendChild(drinkName);
+            drinkInfo.appendChild(drinkPrice);
+    
+            drinkItem.appendChild(imgWrapper);
+            drinkItem.appendChild(drinkInfo);
+    
+            drinksContainer.appendChild(drinkItem);
+        });
+    }
+
+    // Hàm xáo trộn các sản phẩm
+    function shuffleProducts() {
+        const shuffledDrinks = Array.from(drinks).sort(function() {
+            return 0.5 - Math.random();
+        });
+        // Xóa các sản phẩm hiện có
+        drinksContainer.innerHTML = '';
+        // Thêm lại các sản phẩm đã được xáo trộn
+        shuffledDrinks.forEach(function(drink) {
+            drinksContainer.appendChild(drink);
+        });
+    }
+}
+
 function getData() {
     const drinksName = $$('.drink__name');
     const products = [];
@@ -419,5 +574,52 @@ function getData() {
 
     // Lưu trữ dữ liệu tên các sản phẩm vào Local Storage
     localStorage.setItem("menuproducts", JSON.stringify(products));
-
 }
+
+// Lấy phần tử chứa danh sách sản phẩm
+var drinksList = document.querySelector('.drinks__items');
+
+// Lấy tất cả các sản phẩm
+var drinks = Array.from(drinksList.getElementsByClassName('drinks__item'));
+
+// Lấy phần tử chứa các tùy chọn giá
+var priceOptions = document.querySelector('.price__options');
+
+// Lắng nghe sự kiện khi tùy chọn giá được thay đổi
+priceOptions.addEventListener('click', function() {
+    // Lấy tất cả các tùy chọn giá
+    var priceItems = Array.from(priceOptions.getElementsByClassName('price__option'));
+    
+    // Lặp qua từng tùy chọn giá để tìm tùy chọn được chọn
+    priceItems.forEach(function(item) {
+        if (item.classList.contains('active')) {
+            // Lấy văn bản của tùy chọn giá
+            var selectedOption = item.textContent;
+            
+            // Kiểm tra tùy chọn để sắp xếp sản phẩm
+            if (selectedOption === 'Giá: Thấp đến Cao') {
+                drinks.sort(function(a, b) {
+                    var priceA = parseFloat(a.querySelector('.drink__price').textContent);
+                    var priceB = parseFloat(b.querySelector('.drink__price').textContent);
+                    return priceA - priceB;
+                });
+            } else if (selectedOption === 'Giá: Cao đến Thấp') {
+                drinks.sort(function(a, b) {
+                    var priceA = parseFloat(a.querySelector('.drink__price').textContent);
+                    var priceB = parseFloat(b.querySelector('.drink__price').textContent);
+                    return priceB - priceA;
+                });
+            }
+            
+            // Xóa các sản phẩm hiện có
+            while (drinksList.firstChild) {
+                drinksList.removeChild(drinksList.firstChild);
+            }
+            
+            // Thêm lại các sản phẩm đã được sắp xếp
+            drinks.forEach(function(drink) {
+                drinksList.appendChild(drink);
+            });
+        }
+    });
+});
