@@ -119,13 +119,13 @@ body {
 	border-bottom-color: #6A679E;
 }
 
-.login__submit {
+.login__submit,.register__submit {
 	background: #fff;
 	font-size: 14px;
 	margin-top: 30px;
 	padding: 16px 20px;
 	border-radius: 26px;
-	border: 2px solid #D4D3E8;
+	border: 3.5px solid #D4D3E8;
 	text-transform: uppercase;
 	font-weight: 700;
 	display: flex;
@@ -137,11 +137,23 @@ body {
 	transition: .2s;
 }
 
+.register__submit {
+	border: 2.5px solid #bebaba;
+	outline: none;
+}
+
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {
 	border-color: #6A679E;
 	outline: none;
+}
+
+.register__submit:active,
+.register__submit:focus,
+.register__submit:hover {
+	outline: none;
+	opacity: 0.8;
 }
 
 .button__icon {

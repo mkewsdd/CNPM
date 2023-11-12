@@ -1,6 +1,10 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+function start() {
+    getUser();
+}
+
 var form = document.querySelector(".login");
 function handleForm(event) { 
     event.preventDefault(); 
@@ -29,4 +33,5 @@ function getUser() {
         }
     }
 }
-getUser();
+
+

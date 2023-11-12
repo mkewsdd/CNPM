@@ -244,12 +244,13 @@
 
 .filter__container {
   width: 60%;  
-  background: rgba(0,0,0,.04);
+  background: rgba(0,0,0,0.06);
   padding: 0.8125rem 1.25rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border-radius: 3px;
 }
 
 .filter__des {
