@@ -561,6 +561,35 @@ function priceFilter() {
             drinksContainer.appendChild(drink);
         });
     }
+
+    $('#sort-asc').addEventListener('click', function () {
+        sortProducts('asc');
+    });
+
+    $('#sort-desc').addEventListener('click', function () {
+        sortProducts('desc');
+    });
+
+    function sortProducts(order) {
+        var productList = $('.drinks__items');
+        var items = Array.from(productList.children);
+
+        items.sort(function (a, b) {
+            var priceA = parseFloat(a.querySelector('.drink__price').innerText.replace('₫', '').replace(',', ''));
+            var priceB = parseFloat(b.querySelector('.drink__price').innerText.replace('₫', '').replace(',', ''));
+
+            if (order === 'asc') {
+                return priceA - priceB;
+            } else {
+                return priceB - priceA;
+            }
+        });
+
+        productList.innerHTML = '';
+        items.forEach(function (item) {
+            productList.appendChild(item);
+        });
+    }
 }
 
 function getData() {
@@ -576,50 +605,3 @@ function getData() {
     localStorage.setItem("menuproducts", JSON.stringify(products));
 }
 
-// Lấy phần tử chứa danh sách sản phẩm
-var drinksList = document.querySelector('.drinks__items');
-
-// Lấy tất cả các sản phẩm
-var drinks = Array.from(drinksList.getElementsByClassName('drinks__item'));
-
-// Lấy phần tử chứa các tùy chọn giá
-var priceOptions = document.querySelector('.price__options');
-
-// Lắng nghe sự kiện khi tùy chọn giá được thay đổi
-priceOptions.addEventListener('click', function() {
-    // Lấy tất cả các tùy chọn giá
-    var priceItems = Array.from(priceOptions.getElementsByClassName('price__option'));
-    
-    // Lặp qua từng tùy chọn giá để tìm tùy chọn được chọn
-    priceItems.forEach(function(item) {
-        if (item.classList.contains('active')) {
-            // Lấy văn bản của tùy chọn giá
-            var selectedOption = item.textContent;
-            
-            // Kiểm tra tùy chọn để sắp xếp sản phẩm
-            if (selectedOption === 'Giá: Thấp đến Cao') {
-                drinks.sort(function(a, b) {
-                    var priceA = parseFloat(a.querySelector('.drink__price').textContent);
-                    var priceB = parseFloat(b.querySelector('.drink__price').textContent);
-                    return priceA - priceB;
-                });
-            } else if (selectedOption === 'Giá: Cao đến Thấp') {
-                drinks.sort(function(a, b) {
-                    var priceA = parseFloat(a.querySelector('.drink__price').textContent);
-                    var priceB = parseFloat(b.querySelector('.drink__price').textContent);
-                    return priceB - priceA;
-                });
-            }
-            
-            // Xóa các sản phẩm hiện có
-            while (drinksList.firstChild) {
-                drinksList.removeChild(drinksList.firstChild);
-            }
-            
-            // Thêm lại các sản phẩm đã được sắp xếp
-            drinks.forEach(function(drink) {
-                drinksList.appendChild(drink);
-            });
-        }
-    });
-});
