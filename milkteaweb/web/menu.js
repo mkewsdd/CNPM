@@ -561,31 +561,40 @@ function priceFilter() {
             drinksContainer.appendChild(drink);
         });
     }
-
+    // Sắp xếp theo giá thấp đến cao
     $('#sort-asc').addEventListener('click', function () {
         sortProducts('asc');
     });
 
+    // Sắp xếp thep giá cao đến thấp
     $('#sort-desc').addEventListener('click', function () {
         sortProducts('desc');
     });
 
+    // Hàm sắp xếp theo lựa chọn order
     function sortProducts(order) {
         var productList = $('.drinks__items');
         var items = Array.from(productList.children);
 
+        // Dùng sort để sắp xếp mảng
         items.sort(function (a, b) {
             var priceA = parseFloat(a.querySelector('.drink__price').innerText.replace('₫', '').replace(',', ''));
             var priceB = parseFloat(b.querySelector('.drink__price').innerText.replace('₫', '').replace(',', ''));
 
+            // Sắp xếp theo order đã lựa chọn
             if (order === 'asc') {
+                // Sắp xếp theo giá tăng dần
                 return priceA - priceB;
             } else {
+                // Sắp xếp theo giá giảm dần
                 return priceB - priceA;
             }
         });
 
+        // Xóa danh sách sản phẩm
         productList.innerHTML = '';
+
+        // Chèn lại các sản phẩm sau khi sắp xếp theo order
         items.forEach(function (item) {
             productList.appendChild(item);
         });
