@@ -1,17 +1,13 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-function start() {
-    getUser();
-}
-
 var form = document.querySelector(".login");
 function handleForm(event) { 
     event.preventDefault(); 
 } 
 form.addEventListener('submit', handleForm);
 
-function getUser() {
+function UserHandle() {
     const submit = $('.login__submit');
     const login = $('.login');
 
@@ -20,7 +16,6 @@ function getUser() {
         var userPassword = login[1].value;
 
         if(userEmail === '@' && userPassword === '1') {
-            console.log(1);
             window.location.href = '../web/home.html';
         } 
         else if (userEmail == '' || userPassword =='') { 
@@ -33,5 +28,20 @@ function getUser() {
         }
     }
 }
+UserHandle();
 
+form.addEventListener('submit', handleForm);
+function RegisterHandle() {
+    const loginForm = $('.container');
+    const RegisterBtn = $('.register__submit');
+    const closeRegisterForm = $('.close__signUp');
+    
+    RegisterBtn.addEventListener('click', function(){
+        loginForm.style.display = 'none';
+    });
 
+    closeRegisterForm.addEventListener('click', function(){
+        loginForm.style.display = 'flex';
+    });
+}
+RegisterHandle();
