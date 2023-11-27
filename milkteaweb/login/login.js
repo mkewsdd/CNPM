@@ -35,13 +35,16 @@ function RegisterHandle() {
     const loginForm = $('.container');
     const RegisterBtn = $('.register__submit');
     const closeRegisterForm = $('.close__signUp');
+    const signUp = $('.signUp__container');
     
     RegisterBtn.addEventListener('click', function(){
         loginForm.style.display = 'none';
+        signUp.style.display = 'flex';
     });
 
     closeRegisterForm.addEventListener('click', function(){
         loginForm.style.display = 'flex';
+        signUp.style.display = 'none';
     });
 }
 RegisterHandle();
