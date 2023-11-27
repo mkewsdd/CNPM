@@ -122,7 +122,7 @@ body {
 .login__submit,.register__submit {
 	background: #fff;
 	font-size: 14px;
-	margin-top: 30px;
+	margin-top: 24px;
 	padding: 16px 20px;
 	border-radius: 26px;
 	border: 3.5px solid #D4D3E8;
@@ -159,6 +159,27 @@ body {
 	margin-left: auto;
 	color: #7875B5;
 }
+.forget_password_container { 
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.forget_password 
+
+.forget_password_des { 
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.forget_password_des:hover { 
+    cursor: pointer;
+    opacity: 0.85;
+    color: #d7e5fd;
+}
+
 
 /* form Đăng Kí */
 .signUp__container {
