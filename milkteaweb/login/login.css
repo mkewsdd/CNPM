@@ -458,8 +458,7 @@ body {
     line-height: 40px;
 }
 
-.email_search {   
-}
+.email_search 
 
 .email_search_input {
     border-bottom: 1px solid rgb(204, 204, 204);
@@ -479,8 +478,8 @@ body {
     padding: 14px 18px 18px 18px;
 }
 
-.verification_question {
-}
+.verification_question 
+
 .verification_question_container {
     background-color: #f4f4f4;
     padding: 0px 0px 26px 0px;

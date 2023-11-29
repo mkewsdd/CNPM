@@ -75,13 +75,17 @@ function verifyAnswer() {
     if (selectedAnswer && selectedAnswer.value === "9") {
         document.querySelector('.check_email_container').style.display = 'block';
         document.getElementById('searchButton').disabled = false;
-    } else {
+    } else if (selectedAnswer) {
         alert('Incorrect answer. Please try again.');
+    } else {
+        // User has not selected an answer yet
+        // You can choose to display a message or take other actions
     }
 }
 
 document.getElementById('forgotPasswordForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    // Add your code to handle the form submission here
+    verifyAnswer(); // Call the verifyAnswer function on form submission
 });
+
 verifyAnswer();
