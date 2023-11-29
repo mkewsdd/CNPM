@@ -12,6 +12,7 @@ body {
 }
 
 .container {
+    position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -182,11 +183,16 @@ body {
 
 
 /* form Đăng Kí */
-.signUp__container {
-    display: flex;
+.signUp__container__form {
+    position: absolute;
+    display: none;
     justify-content: center;
     align-items: center;  
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    z-index: 3;
 }
 
 .signUp {
@@ -399,7 +405,7 @@ body {
 }
 
 .signUp__container{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 28px 0px 32px 0px;
@@ -434,9 +440,15 @@ body {
 
 /* forgetpassword form */
 .form_fp {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    z-index: 3;
 }
 
 .form_fp_container {      
@@ -463,24 +475,130 @@ body {
     margin: 12px 0px;
 }
 
+.verification_section {
+    padding: 14px 18px 18px 18px;
+}
+
+.verification_question {
+}
+.verification_question_container {
+    background-color: #f4f4f4;
+    padding: 0px 0px 26px 0px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+}
+
+.verification_question_des {
+    font-size: 18px;
+}
+
+.verification_answers {
+    display: flex;
+    justify-content: space-around;
+}
+
+.verification_answer_container {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verification_answer_container .choose_verification_answer_container {
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verification_answer {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.verify_btn_container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.verify_btn {
+    border: none;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 8px 38px;
+    background-color: #e4e6eb;
+    border-radius: 5px;
+}
+
+.verify_btn:hover {
+    border-radius: 6px;
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+	box-shadow: 0px 2px 2px #5C5696;
+    opacity: 0.9;
+}
+
 .email_search_submit {
     background: linear-gradient(90deg, #C7C5F4, #776BCC);
-    padding: 14px 18px 0px 18px;
+    padding: 14px 18px 18px 18px;
     display: flex;
     justify-content: end;
     flex-direction: row;
 }
 
 .close_form_fp {
+    background-color: #e4e6eb;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 36px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close_form_fp_des {
+    font-size: 15px;
+    font-weight: bold;    
+    padding: 0px 10px;
 }
 
 .check_email_container {
+    background: linear-gradient(90deg, #5D54A4, #7C78B8);
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .check_email_btn {
+    background: linear-gradient(90deg, #5D54A4, #7C78B8);
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    padding: 0px 10px;
+    color: #fff;
+}
+
+.close_form_fp:hover {
+    cursor: pointer;
+}
+
+.check_email_container:hover {
+	outline: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+	box-shadow: 0px 2px 2px #5C5696;
+    opacity: 0.8;
 }
 
 

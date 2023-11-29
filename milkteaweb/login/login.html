@@ -45,7 +45,7 @@
         </div>
     </div>
     
-    <div class="signUp__container">
+    <div class="signUp__container__form">
         <div class="signUp">
             <div class="signUp__heading__container">
                 <div class="heading__des__container">
@@ -180,16 +180,48 @@
             </div>
         </div>
     </div>
+
     <div class="form_fp">
         <div class="form_fp_container">
             <div class="email_search">
-                <form >
+                <form id="forgotPasswordForm">
                     <div class="email_search_input">
                         <h1 class="email_search_input_des">
                             Please enter your email address or mobile number to search for your account.
                         </h1>
-                        <div class="email_search_input_container"> 
-                            <input type="email" class="email" placeholder="Mobile number or Email address" required>
+                        <div class="email_search_input_container">
+                            <input type="email" class="email" id="emailInput" placeholder="Mobile number or Email address" required>
+                        </div>
+                    </div>
+                    <div class="verification_section">
+                        <h3 class="verification_question">
+                            Verify your account
+                        </h3>
+                        <div class="verification_question_container">
+                            <h3 class="verification_question_des">What is the value of three squared?</h1>
+                            <div class="verification_answers">
+                                <label class="verification_answer_container">
+                                    <div class="choose_verification_answer_container">
+                                        <input class="verification_answer" type="radio" name="verificationAnswer" value="3">
+                                    </div>
+                                    <p>3</p>
+                                </label>
+                                <label class="verification_answer_container">
+                                    <div class="choose_verification_answer_container">
+                                        <input class="verification_answer" type="radio" name="verificationAnswer" value="6"> 
+                                    </div>
+                                    <p>6</p>
+                                </label>
+                                <label class="verification_answer_container">
+                                    <div class="choose_verification_answer_container">
+                                        <input class="verification_answer" type="radio" name="verificationAnswer" value="9"> 
+                                    </div>
+                                    <p>9</p>
+                                </label>
+                            </div> 
+                            <div class="verify_btn_container">
+                                <button class="verify_btn" type="button" onclick="verifyAnswer()">Verify</button>
+                            </div>
                         </div>
                     </div>
                     <div class="email_search_submit">
@@ -198,16 +230,17 @@
                                 Cancel
                             </p>
                         </div>
-                        <div class="check_email_container">
-                            <button type="submit" class="check_email_btn">
+                        <div class="check_email_container" style="display:none;">
+                            <button type="submit" class="check_email_btn" id="searchButton" disabled>
                                 Search
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div><div class="form_newpassword"></div>
+        </div>
     </div>
+    <div class="form_newpassword"></div>
 </body>
 <script src="login.js">
 </script>

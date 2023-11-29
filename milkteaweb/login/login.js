@@ -35,16 +35,53 @@ function RegisterHandle() {
     const loginForm = $('.container');
     const RegisterBtn = $('.register__submit');
     const closeRegisterForm = $('.close__signUp');
-    const signUp = $('.signUp__container');
+    const signUp = $('.signUp__container__form');
     
     RegisterBtn.addEventListener('click', function(){
-        loginForm.style.display = 'none';
+        console.log(1);
         signUp.style.display = 'flex';
     });
 
     closeRegisterForm.addEventListener('click', function(){
-        loginForm.style.display = 'flex';
+        console.log(1);
         signUp.style.display = 'none';
     });
 }
 RegisterHandle();
+
+function forgetPasswordHandle() {
+    const fpBtn = $('.forget_password_container');
+    const fpForm = $('.form_fp');
+    const closeFpForm = $('.close_form_fp');
+    const checkEmail = $('.check_email_container');
+
+    fpBtn.addEventListener('click', function(){
+        fpForm.style.display = 'flex';
+    })
+
+    closeFpForm.addEventListener('click', function(){
+        fpForm.style.display = 'none';
+    });
+
+    checkEmail.addEventListener('click', function(){
+        fpForm.style.display = 'none';
+    });
+
+}
+forgetPasswordHandle();
+
+function verifyAnswer() {
+    var selectedAnswer = document.querySelector('input[name="verificationAnswer"]:checked');
+    if (selectedAnswer && selectedAnswer.value === "9") {
+        document.querySelector('.check_email_container').style.display = 'block';
+        document.getElementById('searchButton').disabled = false;
+    } else {
+        alert('Incorrect answer. Please try again.');
+    }
+}
+
+document.getElementById('forgotPasswordForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Add your code to handle the form submission here
+});
+verifyAnswer();
