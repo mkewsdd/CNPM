@@ -220,7 +220,7 @@
                                 </label>
                             </div> 
                             <div class="verify_btn_container">
-                                <button class="verify_btn" type="button" onclick="verifyAnswer()">Verify</button>
+                                <button class="verify_btn" id="verifyButton" type="button">Verify</button>
                             </div>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
                             </p>
                         </div>
                         <div class="check_email_container" style="display:none;">
-                            <button type="submit" class="check_email_btn" id="searchButton" disabled>
+                            <button class="check_email_btn" id="searchButton" disabled>
                                 Search
                             </button>
                         </div>
@@ -240,7 +240,20 @@
             </div>
         </div>
     </div>
-    <div class="form_newpassword"></div>
+    <div class="password_reset_notification">
+        <div class="password_reset_notification_container">
+            <div class="password_reset_notification_message">
+                <p class="password_message"> 
+                    Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder.
+                </p class="">
+            </div>
+            <div class="password_reset_notification_close_btn">
+                <button type="submit" class="close_notification" > 
+                    Return to sign in
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="login.js">
 </script>

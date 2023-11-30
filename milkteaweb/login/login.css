@@ -274,7 +274,7 @@ body {
 	font-weight: 600;
     padding: 10px 8px;
     border-radius: 4px;
-    color: #8d949e;
+    color: #2a2d32;
     border-color: #bdc7d8;
     background: #f5f6f7;
 }
@@ -598,6 +598,60 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
 	box-shadow: 0px 2px 2px #5C5696;
     opacity: 0.8;
+}
+
+.check_email_btn:hover {
+    cursor: pointer;
+}
+
+.password_reset_notification { 
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    z-index: 3; 
+}
+
+.password_reset_notification_container { 
+    width: 20%;
+    background-color: #f5f7fd;
+    border-radius: 8px;
+    border: 2px solid #bdbcbc;
+}
+
+.password_reset_notification_message { 
+    word-spacing: 0.65px;
+    padding: 22px 22px 22px 22px;
+    font-size: 14px;
+    font-weight: 500;    
+    text-align: justify;
+}
+
+.password_reset_notification_close_btn { 
+    padding: 0px 22px 22px 22px;
+    display: flex;
+    justify-content: center;
+}
+
+.close_notification { 
+    word-spacing: 1px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 1px solid #696969;
+    width: 80%;
+    height: 80%;
+    padding: 8px 6px;   
+}
+
+.close_notification:hover {
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+	box-shadow: 0px 2px 2px #5C5696;
 }
 
 
