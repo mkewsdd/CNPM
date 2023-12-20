@@ -729,6 +729,204 @@
   transition: box-shadow 0.5s ease-in-out; /* Thêm hiệu ứng chuyển đổi cho bóng */
 }
 
+/* form Xác Nhận Thanh Toán*/
+.payment__form {
+  font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+}
+
+.payment__form__container{  
+  width: 40%;
+  border: 2.5px solid #f8452d;
+  border-radius: 8px;
+}
+
+.payment__form__heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2.5px solid #f8452d;
+  width: 100%;
+  padding: 14px 18px 0px 18px;
+}
+
+.payment__form__tittle{  
+  font-weight: bolder;
+  font-size: 32px;
+}
+
+.payment__form__des{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.close__payment {
+  font-size: 17px;
+  margin-bottom: 40px;
+}
+
+.nameInput {
+  padding: 14px 18px 0px 18px;
+}
+
+.nameInput__des {
+  font-size: 18px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+.phonenumberInput {
+  padding: 14px 18px 0px 18px;
+}
+
+.emailInput__des {
+  font-size: 18px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+.emailInput {
+  padding: 14px 18px 0px 18px;
+}
+
+.emailInput__des {
+  font-size: 18px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+.addressInput {
+  padding: 14px 18px 0px 18px;
+}
+
+.addressInput__des {
+  font-size: 18px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+.infor_text {
+  margin-top: -6px;
+  width: 100%;
+  border: 1px solid #f8452d;
+  outline: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px 8px;
+  border-radius: 4px;
+  color: #2a2d32;
+  border-color: #bdc7d8;
+  background: #f5f6f7;
+  height: 32px;
+}
+
+.payment__container {
+  padding: 14px 18px 0px 18px;
+}
+
+.payment__des {
+  font-size: 18px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+.payment__option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.asvsd{
+  font-size: 200px;
+}
+
+.cashpay {
+}
+
+.onlinepay {
+}
+
+.payment__note {
+  padding: 14px 18px 14px 18px;
+  
+}
+
+.payment__note__des {
+  font-size: 22px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+}
+
+.note_i {
+  font-size: 18px;
+}
+
+.text {
+  margin-top: -6px;
+  width: 100%;
+  border: 1px solid #f8452d;
+  outline: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px 8px;
+  border-radius: 4px;
+  color: #2a2d32;
+  border-color: #bdc7d8;
+  background: #f5f6f7;
+}
+
+.payment__footer {
+  border-top: 2.5px solid #f8452d;
+  padding: 0px 0px 0px 18px;
+  display: flex;
+}
+
+.payment__total__container {
+  border-right: 1px solid #f8452d;
+  width: 75%;
+}
+
+.payment__total {
+  padding: 14px 14px 0px 0px;
+}
+
+.payment__total__des {
+  font-size: 22px;
+  word-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  font-weight: bold; 
+  display: flex; 
+  justify-content: end;
+}
+
+.payment__price {
+  display: flex; 
+  justify-content: end;
+}
+
+.payment__submit {
+  outline: none;
+  border: none;
+  background-color: #f8452d;
+  font-size: 22px;
+  color: #fff;
+  width: 25%;
+  display: table;
+}
+
+.scroll {
+  height: 10000px;
+}
+
+
 /* ::-webkit-scrollbar
 ::-webkit-scrollbar-thumb
 ::-webkit-scrollbar-track */
