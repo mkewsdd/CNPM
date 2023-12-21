@@ -306,7 +306,6 @@
     </div>
 
     <div class="payment__form">
-
         <div class="payment__form__container">
             <div class="payment__form__heading">
                 <h1 class="payment__form__tittle">Vui Lòng Nhập Thông Tin Của Bạn.
@@ -314,36 +313,38 @@
                         Hãy Nhập Chính Xác Thông Tin Của Bạn Để Tránh Sự Cố Không Đáng Có.
                     </p>
                 </h1>
-                <i class="close__payment fa-solid fa-x"></i>
+                <div class="close__payment">
+                <i class="close__payment__icon fa-solid fa-x"></i>
+            </div>
             </div>
 
             <form>  
                 <div class="nameInput">
                     <h1 class="nameInput__des">Họ Và Tên</h1>
-                    <input type="text" class="infor_text" placeholder="" required>
+                    <input type="text" class="customer__name" placeholder="" required>
                 </div>
                 <div class="phonenumberInput">
                     <h1 class="emailInput__des">Số Điện Thoại</h1>
-                    <input type="text" class="infor_text" placeholder="" required>
+                    <input type="text" class="customer__phone" placeholder="" required>
                 </div>
                 <div class="emailInput">
                     <h1 class="emailInput__des">Email</h1>
-                    <input type="email" class="infor_text" placeholder="" required>
+                    <input type="email" class="customer__Email" placeholder="" required>
                 </div>
                 <div class="addressInput">
                     <h1 class="addressInput__des">Địa Chỉ Nhận Hàng</h1>
-                    <input type="text" class="infor_text" placeholder="" required>
+                    <input type="text" class="customer__address" placeholder="" required>
                 </div>
                 <div class="payment__container">
-                    <h1 class="payment__des">Phương Thức Thanh Toán</h1>
+                    <h1 class="payment__des">Phương Thức Thanh Toán:</h1>
                     <div class="payment__option">
                         <div class="cashpay">
                             <label for="cashpay">Thanh Toán Khi Nhận Hàng</label>
-                            <input type="radio" name="paymentMethod" value="female">
+                            <input class="cashpay__option" type="radio" name="paymentMethod" value="cashpay" required>
                         </div>
                         <div class="onlinepay">
                             <label for="onlinepay">Thanh Toán Online</label>
-                            <input type="radio" name="paymentMethod" value="male">
+                            <input type="radio" name="paymentMethod" value="onlinepay">
                         </div>
                     </div>
                 </div>
@@ -369,7 +370,6 @@
             </form>
         </div>
     </div>
-<div class="scroll"></div>
 </body>
 <script src="menu.js"></script>
 </html>

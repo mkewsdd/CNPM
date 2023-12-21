@@ -732,16 +732,21 @@
 /* form Xác Nhận Thanh Toán*/
 .payment__form {
   font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif; 
-  display: flex; 
+  display: none; 
   justify-content: center;
   align-items: center;
-
+  position: fixed;
+  top: 5%;
+  width: 100%;
+  left: 0;
+  z-index: 4;
 }
 
 .payment__form__container{  
-  width: 40%;
+  width: 35%;
   border: 2.5px solid #f8452d;
   border-radius: 8px;
+  background-color: #fff;
 }
 
 .payment__form__heading{
@@ -751,68 +756,75 @@
   border-bottom: 2.5px solid #f8452d;
   width: 100%;
   padding: 14px 18px 0px 18px;
+ 
 }
 
 .payment__form__tittle{  
   font-weight: bolder;
-  font-size: 32px;
+  font-size: 26px; 
+  margin: 0px;
 }
 
 .payment__form__des{
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
 }
 
 .close__payment {
+  display: flex;
+}
+
+.close__payment__icon {
   font-size: 17px;
   margin-bottom: 40px;
 }
 
+.close__payment:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .nameInput {
-  padding: 14px 18px 0px 18px;
+  padding: 10px 18px 0px 18px;
 }
 
 .nameInput__des {
-  font-size: 18px;
+  font-size: 16px;
   word-spacing: 1.2px;
   letter-spacing: 1.2px;
   font-weight: bold;
 }
 
 .phonenumberInput {
-  padding: 14px 18px 0px 18px;
-}
-
-.emailInput__des {
-  font-size: 18px;
-  word-spacing: 1.2px;
-  letter-spacing: 1.2px;
-  font-weight: bold;
+  padding: 10px 18px 0px 18px;
 }
 
 .emailInput {
-  padding: 14px 18px 0px 18px;
+  padding: 10px 18px 0px 18px;
 }
 
 .emailInput__des {
-  font-size: 18px;
+  font-size: 16px;
   word-spacing: 1.2px;
   letter-spacing: 1.2px;
   font-weight: bold;
 }
 
 .addressInput {
-  padding: 14px 18px 0px 18px;
+  padding: 10px 18px 0px 18px;
 }
 
 .addressInput__des {
-  font-size: 18px;
+  font-size: 16px;
   word-spacing: 1.2px;
   letter-spacing: 1.2px;
   font-weight: bold;
 }
 
-.infor_text {
+.customer__name,
+.customer__phone,
+.customer__Email,
+.customer__address {
   margin-top: -6px;
   width: 100%;
   border: 1px solid #f8452d;
@@ -828,38 +840,36 @@
 }
 
 .payment__container {
-  padding: 14px 18px 0px 18px;
+  padding: 10px 18px 0px 18px;
 }
 
 .payment__des {
-  font-size: 18px;
+  font-size: 16px;
   word-spacing: 1.2px;
   letter-spacing: 1.2px;
   font-weight: bold;
 }
 
 .payment__option {
+  font-size: 16px;
   display: flex;
-  justify-content: space-between;
-}
-
-.asvsd{
-  font-size: 200px;
+  flex-direction: column;
 }
 
 .cashpay {
+  margin-top: -6px;
+  margin-bottom: 0px;
 }
 
 .onlinepay {
 }
 
 .payment__note {
-  padding: 14px 18px 14px 18px;
-  
+  padding: 10px 18px 14px 18px;
 }
 
 .payment__note__des {
-  font-size: 22px;
+  font-size: 16px;
   word-spacing: 1.2px;
   letter-spacing: 1.2px;
   font-weight: bold;
@@ -910,6 +920,9 @@
 .payment__price {
   display: flex; 
   justify-content: end;
+  color: #f8452d;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .payment__submit {
@@ -921,11 +934,6 @@
   width: 25%;
   display: table;
 }
-
-.scroll {
-  height: 10000px;
-}
-
 
 /* ::-webkit-scrollbar
 ::-webkit-scrollbar-thumb

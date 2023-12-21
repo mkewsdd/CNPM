@@ -5,6 +5,7 @@ function getstart(){
     popcartHandle();
     openPopcart();
     closePopcart();
+    closePayment();
     search();
     changePage();
     priceFilter()
@@ -23,8 +24,9 @@ function popcartHandle() {
     const cartCount = $('.cart-count');
     const productCounts = $('.counts__products');
     const productsTotalPrice = $('.total');
-    var storedCartProducts = [];
+    const payment = $('.popcart__pay');
 
+    var storedCartProducts = [];
     // Lấy thông tin của sản phẩm người dùng click vào
     buttons.forEach(button => {
         button.onclick = function() {
@@ -54,8 +56,7 @@ function popcartHandle() {
         const cartCount = $('.cart-count');
         const productCounts = $('.counts__products');
         const productsTotalPrice = $('.total');
-        const popcart = $('#popcart');
-        var cartProductList = document.querySelector('.cart__product-items');
+        const popcart = $('#popcart');    
 
     // Tạo popcart
         // Lấy số thẻ li trong thẻ ul(bắt đầu từ 0)
@@ -170,6 +171,59 @@ function popcartHandle() {
         });
     }
 
+    // Hàm xử lí thanh toán
+    payment.addEventListener('click', function() {
+        const paymentForm = $('.payment__form');
+        const popcartForm = $('#popcart');
+        const productItems = $$('.cart__product-item');
+        const popcartTotal = $('.total');
+        const totalPrice = $('.payment__price');
+        const paySubmit = $('.payment__submit');
+        const customerName = $('.customer__name')
+        const customerPhone = $('.customer__phone');
+        const customerEmail= $('.customer__Email');        
+        const customerAddress = $('.customer__address');
+        const payOption = $('.cashpay__option');
+
+        if (productItems.length > 0) {
+            paymentForm.style.display = "flex";
+            popcartForm.style.display = "none";
+            totalPrice.innerHTML = popcartTotal.innerHTML;
+        } else {
+            alert('Bạn không có sản phẩm nào để mua.'); // Hiện thông báo nếu không có sản phẩm
+        }
+
+        // Kiểm tra xem sự kiện đã được gắn chưa
+        if (!paySubmit.hasEvent) {
+            paySubmit.hasEvent = true;
+
+            // Gắn sự kiện chỉ một lần
+            paySubmit.addEventListener('click', function() {
+                const payOption = document.querySelector('input[name="paymentMethod"]:checked');
+            
+                if (
+                    customerName.value &&
+                    customerPhone.value &&
+                    isValidEmail(customerEmail.value) && // Sử dụng hàm kiểm tra email
+                    customerAddress.value &&
+                    payOption && // Kiểm tra xem người dùng đã chọn một phương thức thanh toán hay chưa
+                    payOption.value
+                ) {
+                    alert('Bạn đã đặt hàng thành công');
+                } else {
+                    alert('Vui lòng điền đầy đủ thông tin và chọn phương thức thanh toán để hoàn tất đơn hàng.');
+                }
+            });
+            
+            // Hàm kiểm tra định dạng email
+            function isValidEmail(email) {
+                const emailRegex = /^[a-zA-Z0-9._-]+@gmail\.com$/;
+                return emailRegex.test(email);
+            }
+            
+        }
+    });
+
     // Hàm định dạng số tiền thành định dạng tiền tệ với dấu chấm ngăn cách hàng nghìn
     function formatCurrency(amount) {
         return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -199,6 +253,16 @@ function closePopcart() {
     // Ẩn giỏ hàng khi click vào thanh tiếp tục mua hàng
     continueBuying.onclick = function() {
         popcart.style.display = "none";
+    }
+}
+
+function closePayment() {
+    const closePaymentBtn = $('.close__payment');
+    const paymentForm = $('.payment__form');
+
+    // Ẩn thanh toán khi click vào icon x
+    closePaymentBtn.onclick = function() {
+        paymentForm.style.display = "none";
     }
 }
 
