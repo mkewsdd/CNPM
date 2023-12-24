@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Trang quản lý người dùng</title>
+</head>
+<body>  
+    <header class="header">
+        <div class="header__container">
+            <div class="admin__location">
+            <i class="admin_icon fa-solid fa-user-tie"></i> 
+            <p class="admin__location_des">Quản lý Khách Hàng</p>
+        </div>
+            <div class="admin__actions">
+                <button class="add__customer" id="add" onclick="addUser()">Thêm người dùng</button>
+                <input class="search__customer"type="text" id="search" onkeyup="searchUser()" placeholder="Nhập mã khách hàng...">
+                <button class="signout__btn">Đăng Xuất</button>
+            </div>             
+            
+        </div>
+    </header>
+
+    <div id="brand__navigation">
+        <div class="sidebar">
+            <div class="sidebar__customer">Quản lý Khách Hàng</div>
+            <div class="sidebar__product">Quản lý Sản Phẩm</div>
+            <div class="sidebar__order">Quản lý Hóa Đơn</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content__container">
+            <table id="customer__table">
+                    <thead class="table__header">
+                        <th class="table__code">Mã khách hàng</th>
+                        <th class="table__name">Tên khách hàng</th>
+                        <th class="table__email">Email</th>
+                        <th class="table__phone">Số điện thoại</th>
+                        <th class="table__address">Địa chỉ</th>
+                        <th class="table__code">Mã Hóa Đơn</th>
+                        <th class="table__actions">Hành động</th>
+                    </thead>
+                    <tbody class="customer__informations">
+                        <tr>
+                            <td class="customer__code">001</td>
+                            <td class="customer__name">Nguyễn Thị Lan Anh</td>
+                            <td class="customer__email">nguyenlananh@gmail.com</td>
+                            <td class="customer__phone">0983224321</td>
+                            <td class="customer__address">Hà Nội</td>
+                            <td class="customer__order__code">1001</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">002</td>
+                            <td class="customer__name">Trần Quang Hưng</td>
+                            <td class="customer__email">tranqhumh@gmail.com</td>
+                            <td class="customer__phone">0912355578</td>
+                            <td class="customer__address">Đà Nẵng</td>
+                            <td class="customer__order__code">1002</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">003</td>
+                            <td class="customer__name">Lê Thị Thu Hằng</td>
+                            <td class="customer__email">thuhang@gmail.com</td>
+                            <td class="customer__phone">0916645178</td>
+                            <td class="customer__address">Hồ Chí Minh</td>
+                            <td lass="customer__order__code">1003</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">004</td>
+                            <td class="customer__name">Phạm Văn Minh</td>
+                            <td class="customer__email">phamminh@gmail.com</td>
+                            <td class="customer__phone">0956133478</td>
+                            <td class="customer__address">Hà Giang</td>
+                            <td lass="customer__order__code">1004</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">005</td>
+                            <td class="customer__name">Đỗ Thị Hồng Nhung</td>
+                            <td class="customer__email">dothinhung@gmail.com</td>
+                            <td class="customer__phone">0945236781</td>
+                            <td class="customer__address">Cao Bằng</td>
+                            <td lass="customer__order__code">1005</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">006</td>
+                            <td class="customer__name">Vũ Đức Thành</td>
+                            <td class="customer__email">ducthanh@gmail.com</td>
+                            <td class="customer__phone">0912453786</td>
+                            <td class="customer__address">Hà Nội</td>
+                            <td lass="customer__order__code">1006</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">007</td>
+                            <td class="customer__name">Ngô Thị Thanh Thảo</td>
+                            <td class="customer__email">ngothao@gmail.com</td>
+                            <td class="customer__phone">0962731458</td>
+                            <td class="customer__address">Lạng Sơn</td>
+                            <td lass="customer__order__code">1007</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+    
+<script src="customer.js"></script>
+</body>
+</html>

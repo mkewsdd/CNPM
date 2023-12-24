@@ -18,6 +18,9 @@ function UserHandle() {
         if(userEmail === '@' && userPassword === '1') {
             window.location.href = '../web/home.html';
         } 
+        else if (userEmail === '@' && userPassword === '2') { 
+            window.location.href = '../admin/customer.html';
+        }
         else if (userEmail == '' || userPassword =='') { 
             alert("please enter your email and password");
         }
@@ -91,11 +94,11 @@ function forgetPasswordHandle() {
             checkEmail.style.display = 'block';
             searchButton.disabled = false;
         } else if (selectedAnswer && !emailInputValue) {
-            alert('Please enter your email address.');
+            alert('Hãy nhập địa chỉ email của bạn.');
         } else if (!selectedAnswer && emailInputValue) {
-            alert('Please answer the verification question.');
+            alert('Hãy trả lời câu hỏi xác thực.');
         } else {
-            alert('Your verification answer is wrong please answer again.');
+            alert('Bạn đã trả lời sai vui lòng chọn lại.');
         }
     }
 

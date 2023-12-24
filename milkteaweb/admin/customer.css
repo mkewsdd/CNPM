@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+.header__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin__location{
+    display: flex;
+    align-items: center;
+}
+
+.admin_icon {
+    font-size: 44px;
+}
+
+.admin__location_des{
+    margin-left: 16px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.admin__actions {
+}
+
+.add__customer {
+    font-size: 16px;
+    padding: 10px 16px;
+    margin-right: 8px;
+    border: none;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+.add__customer:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+}
+
+.search__customer {
+    font-size: 16px;
+    padding: 10px 16px;
+    margin-right: 8px;
+    border: none;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+
+.signout__btn {
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.signout__btn:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+}
+
+.sidebar {
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background: linear-gradient(to bottom, #4CAF50, #9dd63b, #90e33d);
+    overflow-x: hidden;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+
+.sidebar__customer,
+.sidebar__product,
+.sidebar__order {
+    font-weight: 600;
+    padding: 18px 24px 18px 24px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 2px solid #ccc;
+}
+
+.add__customer:hover {
+    cursor: pointer;
+}
+
+.sidebar__customer:hover,
+.sidebar__product:hover,
+.sidebar__order:hover {
+    color: #f1f1f1;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.content {
+    width: 85%;
+    margin: 0px auto;
+    right: 0;
+    position: fixed;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    border-top: 2px solid #ccc;
+}
+
+.content__container {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+#customer__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table__header {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.table__header th {
+    padding: 12px;
+    text-align: left;
+}
+
+.customer__informations tr:nth-child(even) {
+    background-color: #ebe5e5;
+}
+
+.customer__informations td {
+    padding: 10px;
+}
+
+/* Button Styles */
+.customer__actioned {
+    display: flex;
+    justify-content: space-around;
+}
+.customer__actioned button {
+    background-color: #f8452d;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.customer__actioned button.edit {
+    margin-left: -10px;
+    background-color: #2196F3;
+}
+
+/* Hover effect on buttons */
+.customer__actioned button:hover {
+    opacity: 0.8;
+}

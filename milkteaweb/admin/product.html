@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Trang quản lý sản phẩm</title>
+</head>
+<body>  
+    <header class="header">
+        <div class="header__container">
+            <div class="admin__location">
+            <i class="admin_icon fa-solid fa-martini-glass-citrus"></i>
+            <p class="admin__location_des">Quản lý Sản Phẩm</p>
+        </div>
+            <div class="admin__actions">
+                <button class="add__customer" id="add" onclick="addUser()">Thêm sản phẩm</button>
+                <input class="search__customer"type="text" id="search" onkeyup="searchUser()" placeholder="Nhập Mã Sản Phẩm...">
+                <button class="signout__btn">Đăng Xuất</button>
+            </div>             
+            
+        </div>
+    </header>
+
+    <div id="brand__navigation">
+        <div class="sidebar">
+            <div class="sidebar__customer">Quản lý Khách Hàng</div>
+            <div class="sidebar__product">Quản lý Sản Phẩm</div>
+            <div class="sidebar__order">Quản lý Hóa Đơn</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content__container">
+            <table id="customer__table">
+                    <thead class="table__header">
+                        <th class="table__code">Mã Sản Phẩm</th>
+                        <th class="table__name">Tên Sản Phẩm</th>
+                        <th class="table__email">Giá</th>
+                        <th class="table__phone">Hàng Tồn</th>
+                        <th class="table__address">Thời Điểm Bán Sản Phẩm</th>
+                        <th class="table__code">Lượt Bán</th>
+                        <th class="table__actions">Hành Động</th>
+                    </thead>
+                    <tbody class="customer__informations">
+                        <tr>
+                            <td class="customer__code">001</td>
+                            <td class="customer__name">Sinh Tố Dâu Tây</td>
+                            <td class="customer__email">42.000₫</td>
+                            <td class="customer__phone">101</td>
+                            <td class="customer__address">20/12/2024</td>
+                            <td class="customer__order__code">99</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">002</td>
+                            <td class="customer__name">Trà Xanh Bưởi</td>
+                            <td class="customer__email">29.000₫</td>
+                            <td class="customer__phone">136</td>
+                            <td class="customer__address">20/12/2024</td>
+                            <td class="customer__order__code">64</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">003</td>
+                            <td class="customer__name">Trà Xanh Dưa Leo</td>
+                            <td class="customer__email">34.000₫</td>
+                            <td class="customer__phone">133</td>
+                            <td class="customer__address">18/12/2024</td>
+                            <td lass="customer__order__code">67</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">004</td>
+                            <td class="customer__name">Trà Sữa Socola</td>
+                            <td class="customer__email">37.000₫</td>
+                            <td class="customer__phone">142</td>
+                            <td class="customer__address">20/12/2024</td>
+                            <td lass="customer__order__code">58</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">005</td>
+                            <td class="customer__name">Trà Chanh Đài Loan</td>
+                            <td class="customer__email">27.000₫</td>
+                            <td class="customer__phone">121</td>
+                            <td class="customer__address">20/12/2024</td>
+                            <td lass="customer__order__code">79</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">006</td>
+                            <td class="customer__name">Hồng Trà Mật Ong</td>
+                            <td class="customer__email">36.000₫</td>
+                            <td class="customer__phone">165</td>
+                            <td class="customer__address">19/12/2024</td>
+                            <td lass="customer__order__code">35</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">007</td>
+                            <td class="customer__name">Trà Sữa Kiwi</td>
+                            <td class="customer__email">32.000₫</td>
+                            <td class="customer__phone">180</td>
+                            <td class="customer__address">18/12/2024</td>
+                            <td lass="customer__order__code">20</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="customer__code">008</td>
+                            <td class="customer__name">Trà Sữa Khoai Môn</td>
+                            <td class="customer__email">45.000₫</td>
+                            <td class="customer__phone">176</td>
+                            <td class="customer__address">18/12/2024</td>
+                            <td lass="customer__order__code">24</td>
+                            <td class="customer__actioned">
+                                <button class="edit" onclick="editUser(this)">Sửa</button>
+                                <button class="delete" onclick="deleteUser(this)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+<script src="product.js"></script>
+</body>
+</html>
