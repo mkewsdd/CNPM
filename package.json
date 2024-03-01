@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "login.html",
+    "start": "CNPM",
     "test": "mocha --timeout 10000",
     "dev": "nodemon server.js"
   },
