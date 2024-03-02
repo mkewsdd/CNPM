@@ -2,9 +2,9 @@
   "name": "cnpm",
   "version": "1.0.0",
   "description": "",
-  "main": "login.js",
+  "main": "milkteaweb",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node login.js"
   },
   "keywords": [],
   "author": "",
