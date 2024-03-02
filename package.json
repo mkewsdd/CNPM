@@ -2,7 +2,7 @@
   "name": "cnpm",
   "version": "1.0.0",
   "description": "",
-  "main": "milkteaweb",
+  "main": "milkteaweb/login/login.html",
   "scripts": {
     "start": "node login.js"
   },
